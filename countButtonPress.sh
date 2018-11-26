@@ -1,10 +1,9 @@
 #!/bin/bash
 # 4 is the buzzer
 
-for value in {1..16}
+for i in {1..16}
 do
-	if(($value -eq "16"))
-	then
+	if [ $i -eq "16" ]; then
 	./setbits.sh 0
 	gpio write 4 1
 	sleep 1
@@ -12,7 +11,7 @@ do
 	
 	else
 	./waitForButtonPress.sh
-	./setbits.sh "$value"
+	./setbits.sh $i
 	fi
 done
 
